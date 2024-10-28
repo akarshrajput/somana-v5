@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       <body className={`${lato.className} dark:bg-neutral-800 antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
