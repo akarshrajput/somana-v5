@@ -2,23 +2,25 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
-
-// Import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Image } from "@chakra-ui/react";
 import Loading from "@/app/loading";
+
+// Function to generate valid, unique CSS-safe IDs
+const generateUniqueId = (prefix = "podcastList") =>
+  `${prefix}-${Math.random().toString(36).substring(2, 9)}`;
 
 const PodcastList = ({ api }) => {
   const [podcasts, setPodcasts] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  // Generate a unique CSS-safe ID for each PodcastList instance
+  const uniqueId = generateUniqueId();
 
   useEffect(() => {
     const fetchPodcasts = async () => {
@@ -43,17 +45,17 @@ const PodcastList = ({ api }) => {
   return (
     <div className="px-4 relative">
       <div>
-        {/* Custom Previous and Next Buttons */}
+        {/* Custom Previous and Next Buttons with unique IDs */}
         <button
           className="absolute top-[35%] left-0 z-10 p-2 h-10 w-10 bg-gray-800/50 text-white rounded-sm hover:bg-gray-600/30 transition-all"
-          id="prevButton"
+          id={`prevButton-${uniqueId}`}
         >
           <ChevronLeft strokeWidth="3" />
         </button>
 
         <button
           className="absolute top-[35%] right-0 z-10 p-2 h-10 w-10 bg-gray-800/50 text-white rounded-sm hover:bg-gray-600/30 transition-all"
-          id="nextButton"
+          id={`nextButton-${uniqueId}`}
         >
           <ChevronRight strokeWidth="3" />
         </button>
@@ -64,8 +66,8 @@ const PodcastList = ({ api }) => {
           spaceBetween={10}
           slidesPerView={12}
           navigation={{
-            prevEl: "#prevButton", // Link to custom previous button
-            nextEl: "#nextButton", // Link to custom next button
+            prevEl: `#prevButton-${uniqueId}`, // Use unique ID for previous button
+            nextEl: `#nextButton-${uniqueId}`, // Use unique ID for next button
           }}
         >
           {podcasts.map((podcast, index) => (

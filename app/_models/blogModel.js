@@ -34,9 +34,11 @@ const blogSchema = new mongoose.Schema(
       type: String,
       default: "default-blog.jpg",
     },
-    collectedImages: {
-      type: [String],
-    },
+    collectedImages: [
+      {
+        type: String,
+      },
+    ],
     tags: {
       type: String,
       minlength: [2, "Tag is not valid."],

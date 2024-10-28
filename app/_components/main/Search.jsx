@@ -18,10 +18,10 @@ const Search = () => {
     <>
       <button
         onClick={onOpen}
-        className="p-2 px-3 rounded-md font-medium bg-neutral-200 text-sm flex items-center gap-1"
+        className="p-2 px-4 rounded-full font-medium bg-neutral-200 text-sm flex items-center gap-1"
       >
         <MagnifyingGlass weight="bold" />
-        Search here...
+        Search here
       </button>
 
       <Modal isOpen={isOpen} onClose={onClose}>

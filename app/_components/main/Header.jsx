@@ -10,11 +10,12 @@ import SwitchService from "../buttons/SwitchService";
 const Header = async () => {
   const session = await auth();
   return (
-    <div className="p-1 flex items-center">
+    <div className="p-1 bg-white flex gap-2 items-center">
       <Logo />
-      <div className="ml-auto flex items-center gap-1">
-        <Search />
+      <Search />
+      <div className="ml-auto h-full flex items-center gap-1">
         <SwitchService />
+
         <UploadType />
         {session ? <ProfileMenu session={session} /> : <LoginButton />}
       </div>

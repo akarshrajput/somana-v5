@@ -29,9 +29,10 @@ export default function RootLayout({ children }) {
           <CacheProvider>
             <ChakraProvider>
               <div>
-                <div className="sticky w-full z-10">
+                <div className="fixed w-full z-10">
                   <Header />
                 </div>
+                <p className="h-12"></p>
                 {children}
               </div>
             </ChakraProvider>
