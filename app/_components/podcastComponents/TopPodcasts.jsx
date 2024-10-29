@@ -35,7 +35,7 @@ const TopPodcasts = ({ api }) => {
     <div className="relative">
       <div className="flex items-center gap-2">
         {podcasts.map((podcast, index) => (
-          <PodcastInfo podcast={podcast} />
+          <PodcastInfo podcast={podcast} key={podcast._id} />
         ))}
       </div>
     </div>
