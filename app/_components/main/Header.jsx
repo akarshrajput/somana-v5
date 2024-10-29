@@ -12,10 +12,10 @@ const Header = async () => {
   return (
     <div className="p-1 bg-white flex gap-2 items-center">
       <Logo />
-      <Search />
-      <div className="ml-auto h-full flex items-center gap-1">
-        <SwitchService />
 
+      <div className="ml-auto h-full flex items-center gap-2">
+        <Search />
+        <SwitchService />
         <UploadType />
         {session ? <ProfileMenu session={session} /> : <LoginButton />}
       </div>

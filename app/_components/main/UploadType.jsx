@@ -17,7 +17,7 @@ const UploadType = () => {
     <>
       <button
         onClick={onOpen}
-        className="p-2 px-2 rounded-md font-medium text-sm flex items-center gap-1"
+        className="p-1.5 px-2 bg-green-300 rounded-md font-medium text-sm flex items-center gap-1"
       >
         <Upload weight="bold" />
         Upload

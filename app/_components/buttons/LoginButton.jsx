@@ -7,7 +7,7 @@ const LoginButton = () => {
     <>
       <Link
         href="/login"
-        className="p-2 font-medium text-sm bg-green-400 rounded-md flex items-center gap-1"
+        className="p-1.5 px-2 font-medium text-sm bg-green-300 rounded-md flex items-center gap-1"
       >
         Login <LogIn size="16" strokeWidth="3px" />
       </Link>

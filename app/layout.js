@@ -4,6 +4,7 @@ import { ThemeProvider } from "./_components/providers/ThemeProvider";
 import "./globals.css";
 import { Rubik } from "next/font/google";
 import { ChakraProvider } from "@chakra-ui/react";
+import ReactQueryProvider from "./_components/providers/ReactQueryProvider";
 
 const lato = Rubik({
   subsets: ["latin"],
@@ -28,13 +29,15 @@ export default function RootLayout({ children }) {
         >
           <CacheProvider>
             <ChakraProvider>
-              <div>
-                <div className="fixed w-full z-10">
-                  <Header />
+              <ReactQueryProvider>
+                <div>
+                  <div className="fixed w-full z-10">
+                    <Header />
+                  </div>
+                  <p className="h-12"></p>
+                  {children}
                 </div>
-                <p className="h-12"></p>
-                {children}
-              </div>
+              </ReactQueryProvider>
             </ChakraProvider>
           </CacheProvider>
         </ThemeProvider>
