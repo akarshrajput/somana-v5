@@ -15,7 +15,7 @@ const DeleteButton = ({ blogId }) => {
       setIsLoading(true);
       const response = await axios.delete(`/api/v1/blogs/${blogId}`);
       if (response.status === 200) {
-        router.push("/");
+        router.push("/story");
         toast({
           title: "Story deleted!",
           description: "Story added successfully",

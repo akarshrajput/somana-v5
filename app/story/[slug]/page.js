@@ -143,6 +143,22 @@ const Page = async ({ params }) => {
               {blog.description}
             </p>
           </div>
+          <div className="mt-4">
+            <p className="text-sm underline">Photo Stock</p>
+            {blog.collectedImages && blog.collectedImages.length > 0 && (
+              <div className="mt-2 grid grid-cols-2 gap-2">
+                {blog.collectedImages.map((imageUrl, index) => (
+                  <img
+                    key={index}
+                    src={imageUrl}
+                    alt={`Collected image ${index + 1}`}
+                    className="w-full max-w-xs rounded-sm"
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+
           <div className="flex justify-center">
             <div
               className={`hyphens-auto  text-sm md:text-lg overflow-hidden leading-loose mt-10 tracking-wider dark:bg-black dark:text-stone-50 text-stone-700  antialiased mb-10`}
