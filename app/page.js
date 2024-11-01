@@ -1,6 +1,7 @@
 import { Sparkle } from "@phosphor-icons/react/dist/ssr";
 import ThemeButton from "./_components/buttons/ThemeButton";
 import TopPodcasts from "./_components/podcastComponents/TopPodcasts";
+import StoryGrid from "./_components/storyComponents/StoryGrid";
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
       <div className="grid grid-cols-5 gap-2">
         <div className="col-span-4 flex">
           <div className="flex flex-col gap-4">
-            {/* <TopPodcasts api="/api/v1/podcasts?limit=6" /> */}
+            <StoryGrid />
           </div>
         </div>
         <div className="w-72 bg-slate-200">
