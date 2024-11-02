@@ -5,7 +5,7 @@ const Page = async () => {
   const session = await auth();
   return (
     <div className="flex flex-col items-center">
-      <div className="w-5/6 px-2 mt-4">
+      <div className="w-[1200px] px-2 mt-4">
         <CurrentUserProfile session={session} />
       </div>
     </div>

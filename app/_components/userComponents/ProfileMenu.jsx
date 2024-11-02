@@ -55,15 +55,17 @@ const ProfileMenu = ({ session }) => {
           <Question weight="bold" className="mr-2" />
           Help
         </MenuItem>
-        <MenuItem>
-          <Warning weight="bold" className="mr-2" />
-          Report
-        </MenuItem>
+        <Link href="/support">
+          <MenuItem>
+            <Warning weight="bold" className="mr-2" />
+            Support
+          </MenuItem>
+        </Link>
         <MenuItem>
           <Bug weight="bold" className="mr-2" />
           Bug Report
         </MenuItem>
-        <Link href="/policy">
+        <Link href="/privacy-policy">
           <MenuItem>
             <Detective weight="bold" className="mr-2" />
             Policy
