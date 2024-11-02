@@ -2,10 +2,12 @@
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { Image } from "@chakra-ui/react";
-import { BookmarkSimple, Sparkle, StarFour } from "@phosphor-icons/react";
+import { Book, BookmarkSimple, Sparkle, StarFour } from "@phosphor-icons/react";
 import { Rubik } from "next/font/google";
 import axios from "axios";
 import LoadingMain from "../main/Loading";
+import { ArrowBigRight } from "lucide-react";
+import { BookOpen, Pen } from "@phosphor-icons/react/dist/ssr";
 
 const rubik = Rubik({
   subsets: ["latin"],
@@ -14,7 +16,7 @@ const rubik = Rubik({
 
 // Fetch blogs with a simple query
 const fetchBlogs = async () => {
-  const res = await axios.get(`/api/v1/blogs?limit=12`);
+  const res = await axios.get(`/api/v1/blogs?limit=6`);
   console.log(res.data.data.blogs);
   return res?.data?.data;
 };
@@ -28,7 +30,21 @@ const StoryGrid = () => {
 
   return (
     <div className="dark:bg-black dark:text-stone-50 mx-auto">
-      <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+      <p className="mb-2 font-medium flex items-center gap-1">
+        <Book weight="bold" />
+        Stories
+        <button className="text-sm p-0.5 px-2 bg-green-300 rounded-md">
+          More stories
+        </button>
+        <Link
+          href="/story/write"
+          className="p-0.5 px-2 w-fit flex items-center gap-1 bg-green-300 rounded-md font-medium text-sm"
+        >
+          <Pen weight="bold" />
+          Write Story
+        </Link>
+      </p>
+      <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
         {isLoading ? (
           <LoadingMain />
         ) : (
@@ -36,7 +52,7 @@ const StoryGrid = () => {
             <Link
               href={`/story/${post.slug}`}
               key={post.id}
-              className="flex cursor-pointer flex-col gap-1 p-2 dark:bg-gray-800"
+              className="flex cursor-pointer flex-col gap-1 dark:bg-gray-800"
             >
               <div className="flex items-center gap-2 mb-1">
                 <img
@@ -73,11 +89,17 @@ const StoryGrid = () => {
                 </h3>
               </Link>
 
-              <div className="flex justify-center w-full overflow-hidden h-40 md:h-40 rounded-sm">
-                <img
-                  src={post?.featuredImage}
-                  className="w-full h-full object-cover rounded-md hover:rounded-sm duration-500"
-                  alt="Featured Image"
+              <div className="relative">
+                <div className="flex justify-center w-full overflow-hidden h-40 md:h-40 rounded-sm">
+                  <img
+                    src={post?.featuredImage}
+                    className="w-full h-full object-cover rounded-md hover:rounded-sm duration-500"
+                    alt="Featured Image"
+                  />
+                </div>
+                <BookOpen
+                  weight="bold"
+                  className="absolute size-6 bottom-2 left-2 text-white bg-gray-800 p-1 rounded-full"
                 />
               </div>
 

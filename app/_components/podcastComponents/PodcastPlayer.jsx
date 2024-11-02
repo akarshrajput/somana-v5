@@ -108,7 +108,7 @@ const PodcastPage = ({ params }) => {
         )}
       </div>
       <p className="px-2">More from {podcast?.author?.name}</p>
-      <div className="px-6">
+      <div className="">
         <PodcastList
           api={`/api/v1/podcasts?authorID=${podcast?.author?._id}`}
         />
