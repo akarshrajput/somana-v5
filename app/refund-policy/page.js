@@ -3,7 +3,7 @@
 import React from "react";
 import { Container, Text, VStack, Divider } from "@chakra-ui/react";
 
-const page = () => {
+const Page = () => {
   return (
     <Container maxW="container.md" py={10}>
       <VStack spacing={6} align="start">
@@ -55,4 +55,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

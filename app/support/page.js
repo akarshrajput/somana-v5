@@ -1,4 +1,3 @@
-// pages/support.js
 "use client";
 import React, { useState } from "react";
 import {
@@ -14,7 +13,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-const page = () => {
+const Page = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -22,7 +21,6 @@ const page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the message to your API
     setSuccess(true);
     setName("");
     setEmail("");
@@ -125,4 +123,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
