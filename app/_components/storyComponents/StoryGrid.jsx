@@ -16,7 +16,7 @@ const rubik = Rubik({
 
 // Fetch blogs with a simple query
 const fetchBlogs = async () => {
-  const res = await axios.get(`/api/v1/blogs?limit=6`);
+  const res = await axios.get(`/api/v1/blogs?limit=9`);
   console.log(res.data.data.blogs);
   return res?.data?.data;
 };
@@ -44,7 +44,7 @@ const StoryGrid = () => {
           Write Story
         </Link>
       </p> */}
-      <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+      <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {isLoading ? (
           <LoadingMain />
         ) : (
