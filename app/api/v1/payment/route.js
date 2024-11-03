@@ -6,7 +6,12 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(req) {
-  const { userId } = await req.json(); // Ensure you pass user ID from client
+  const { userId } = await req.json();
+
+  // Validate userId
+  if (!userId) {
+    return NextResponse.json({ error: "userId is required" }, { status: 400 });
+  }
 
   try {
     const paymentIntent = await stripe.paymentIntents.create({
@@ -17,6 +22,10 @@ export async function POST(req) {
 
     return NextResponse.json({ clientSecret: paymentIntent.client_secret });
   } catch (error) {
-    return NextResponse.json({ error: error.message });
+    console.error("Payment Intent Creation Error:", error);
+    return NextResponse.json(
+      { error: "An error occurred while creating the payment intent." },
+      { status: 500 }
+    );
   }
 }

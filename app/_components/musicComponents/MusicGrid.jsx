@@ -33,21 +33,29 @@ const MusicGrid = ({ api }) => {
 
   return (
     <div>
-      <p className="mb-2 font-medium flex items-center gap-1">
+      {/* <p className="mb-2 font-medium flex items-center gap-1">
         <MusicNote weight="bold" />
         Music
         <button className="text-sm p-0.5 px-2 bg-green-300 rounded-md">
           More tracks
         </button>
-      </p>
+      </p> */}
+
       {loading ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {podcasts.map((podcast) => (
-            <PodcastInfo key={podcast._id} podcast={podcast} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {podcasts.map((podcast) => (
+              <PodcastInfo key={podcast._id} podcast={podcast} />
+            ))}
+          </div>
+          <div className="flex">
+            <button className="text-green-700 w-fit text-xs underline mt-2">
+              Explore More Music
+            </button>
+          </div>
+        </>
       )}
     </div>
   );
@@ -60,7 +68,7 @@ const PodcastInfo = ({ podcast }) => {
       className="group block bg-white dark:bg-gray-800"
     >
       <div className="relative">
-        <div className="flex justify-center w-full overflow-hidden h-32 rounded-sm">
+        <div className="flex justify-center w-full overflow-hidden h-20 rounded-sm">
           <img
             src={podcast?.featuredImage}
             className="w-full h-full object-cover rounded-md hover:rounded-sm duration-500"
@@ -69,10 +77,10 @@ const PodcastInfo = ({ podcast }) => {
         </div>
         <MusicNote
           weight="bold"
-          className="absolute size-6 bottom-2 left-2 text-white bg-gray-800 p-1 rounded-full"
+          className="absolute size-6 bottom-2 left-2 text-black bg-gray-200 p-1 rounded-full"
         />
       </div>
-      <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mt-1 transition-colors">
+      <p className="text-xs font-semibold text-gray-900 dark:text-gray-100 mt-1 transition-colors">
         {podcast.musicName}
       </p>
       <p className="text-xs text-gray-500 dark:text-gray-400">

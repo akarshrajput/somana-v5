@@ -7,7 +7,7 @@ import { Rubik } from "next/font/google";
 import axios from "axios";
 import LoadingMain from "../main/Loading";
 import { ArrowBigRight } from "lucide-react";
-import { BookOpen, Pen } from "@phosphor-icons/react/dist/ssr";
+import { BookOpen, Pen, SealCheck } from "@phosphor-icons/react/dist/ssr";
 
 const rubik = Rubik({
   subsets: ["latin"],
@@ -30,7 +30,7 @@ const StoryGrid = () => {
 
   return (
     <div className="dark:bg-black dark:text-stone-50 mx-auto">
-      <p className="mb-2 font-medium flex items-center gap-1">
+      {/* <p className="mb-2 font-medium flex items-center gap-1">
         <Book weight="bold" />
         Stories
         <button className="text-sm p-0.5 px-2 bg-green-300 rounded-md">
@@ -43,7 +43,7 @@ const StoryGrid = () => {
           <Pen weight="bold" />
           Write Story
         </Link>
-      </p>
+      </p> */}
       <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
         {isLoading ? (
           <LoadingMain />
@@ -52,9 +52,9 @@ const StoryGrid = () => {
             <Link
               href={`/story/${post.slug}`}
               key={post.id}
-              className="flex cursor-pointer flex-col gap-1 dark:bg-gray-800"
+              className="flex cursor-pointer flex-col dark:bg-gray-800"
             >
-              <div className="flex items-center gap-2 mb-1">
+              <div className="flex items-center gap-2">
                 <img
                   alt="Author"
                   src={post.author.photo}
@@ -67,6 +67,9 @@ const StoryGrid = () => {
                   >
                     {post.author.name}
                   </Link>
+                  {post.author.verified && (
+                    <SealCheck className="text-black size-3" weight="fill" />
+                  )}
                   in
                   <Link
                     href={`/blogs/topic/${post.genre}`}
@@ -84,7 +87,7 @@ const StoryGrid = () => {
                 href={`/story/${post.slug}`}
                 className={`${rubik.className}`}
               >
-                <h3 className="font-semibold truncate mb-1 leading-5">
+                <h3 className="font-semibold text-sm truncate mb-1 leading-5">
                   {post.heading}
                 </h3>
               </Link>
@@ -97,14 +100,15 @@ const StoryGrid = () => {
                     alt="Featured Image"
                   />
                 </div>
+
                 <BookOpen
                   weight="bold"
-                  className="absolute size-6 bottom-2 left-2 text-white bg-gray-800 p-1 rounded-full"
+                  className="absolute size-6 bottom-2 left-2 text-black bg-gray-200 p-1 rounded-full"
                 />
               </div>
 
               <p className="text-xs text-gray-500 dark:text-gray-300 mt-1 line-clamp-3">
-                {post.description.substring(0, 70)}
+                {post.description.substring(0, 100)}...
               </p>
             </Link>
           ))

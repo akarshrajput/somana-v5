@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
     },
+    userName: {
+      type: String,
+      unique: true,
+    },
     photo: {
       type: String,
     },
@@ -97,6 +101,13 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+userSchema.pre("save", function (next) {
+  if (!this.userName && this.email) {
+    this.userName = this.email.split("@")[0].replace(/[^a-zA-Z0-9]/g, "_");
+  }
+  next();
+});
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
 
