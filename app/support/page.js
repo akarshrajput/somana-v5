@@ -34,7 +34,7 @@ const Page = () => {
           Customer Support
         </Text>
         <Text>
-          We're here to help you with any questions or issues you may have!
+          Were here to help you with any questions or issues you may have!
         </Text>
 
         <Box>
@@ -47,7 +47,7 @@ const Page = () => {
               <strong>Q: How can I share my stories?</strong>
             </Text>
             <Text>
-              A: You can share your stories by clicking on the 'Share' button on
+              A: You can share your stories by clicking on the Share button on
               our homepage.
             </Text>
 
@@ -61,14 +61,14 @@ const Page = () => {
             <Text>
               <strong>Q: Is there a limit to the podcasts I can share?</strong>
             </Text>
-            <Text>A: No, you can share as many podcasts as you'd like!</Text>
+            <Text>A: No, you can share as many podcasts as youd like!</Text>
 
             <Text>
               <strong>Q: How can I reset my password?</strong>
             </Text>
             <Text>
-              A: You can reset your password by clicking on 'Forgot Password?'
-              on the login page.
+              A: You can reset your password by clicking on Forgot Password? on
+              the login page.
             </Text>
           </VStack>
         </Box>
