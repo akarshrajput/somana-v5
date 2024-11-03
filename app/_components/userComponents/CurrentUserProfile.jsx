@@ -5,7 +5,6 @@ import { useToast } from "@chakra-ui/react";
 import { useQuery, useMutation } from "@tanstack/react-query"; // Updated import
 import UpdateUsername from "./UpdateUsername";
 import LoadingMain from "../main/Loading";
-import Subscribe from "../main/Subscribe";
 
 const fetchUserData = async (userId) => {
   const response = await axios.get(`/api/v1/users/${userId}`);
@@ -132,12 +131,6 @@ const CurrentUserProfile = ({ session }) => {
           <p className="bg-stone-100 dark:bg-stone-800 dark:text-stone-50 dark:border-stone-700 antialiased px-4 py-1 border rounded-md ">
             Subscription : {userProfile.subscription ? "Yes" : "No"}
           </p>
-          {/* <p>{session.user.userId}</p> */}
-          {userProfile.subscription ? (
-            ""
-          ) : (
-            <Subscribe userId={session.user.userId} />
-          )}
         </div>
         <div className="flex flex-col gap-2">
           <label className="flex flex-col gap-1">
